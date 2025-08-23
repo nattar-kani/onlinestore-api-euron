@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app import models, schemas, CRUD
 from app.database import engine, Base, get_db
 from app.auth import get_apikey
-from app.webhook import webhook_router
+from onlineStore.app.routers.webhook import webhook_router
 
 
 Base.metadata.create_all(bind=engine)

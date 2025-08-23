@@ -1,7 +1,15 @@
-import hmac, hashlib
+import hmac, hashlib, json, time
 
-payload = b'{"status": "PAID", "order_id": 1002}' 
+payload_dict = {
+    "event_id": "evt_12345",
+    "order_id": 2002,
+    "type": "payment.succeeded",
+    "timestamp": int(time.time())
+}
+payload = json.dumps(payload_dict, separators=(',', ':')).encode("utf-8")
+
 secret = b"pokemon"
-
 signature = hmac.new(secret, payload, hashlib.sha256).hexdigest()
-print(signature)
+
+print("Payload:", payload.decode())
+print("Signature:", signature)
