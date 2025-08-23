@@ -1,0 +1,7 @@
+fastapi
+sqlalchemy
+pyodbc
+pydantic
+python-dotenv
+requests
+anyio
