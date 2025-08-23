@@ -5,4 +5,4 @@ pydantic
 python-dotenv
 requests
 anyio
-uvicorn
+uvicorn[standard]
