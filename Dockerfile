@@ -8,12 +8,12 @@ RUN apt-get update && \
     curl -sSL https://packages.microsoft.com/config/ubuntu/22.04/prod.list | tee /etc/apt/sources.list.d/mssql-release.list && \
     apt-get update && \
     ACCEPT_EULA=Y apt-get install -y msodbcsql17 && \
-    apt-get clean
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 
 COPY requirements.txt /app/
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY ./app /app
 
